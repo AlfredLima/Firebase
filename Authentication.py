@@ -19,8 +19,9 @@ class Authentication():
 
         keys = fileKeys.read()
         config = json.loads(keys)
-        self.firebase = pyrebase.initialize_app(config)
-        self.auth = self.firebase.auth()
+        firebase = pyrebase.initialize_app(config)
+        self.auth = firebase.auth()
+        self.database = firebase.database()
 
     def login(self, nick, password):
         try:
