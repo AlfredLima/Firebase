@@ -112,3 +112,19 @@ class Manager():
             print(user.val())
 
     #####################################################################
+
+    ## Storage
+
+    # Put in storage
+    def putStorage(self, key, fileName, user):
+        try:
+            file = open(fileName, 'r')
+        except FileNotFoundError as e:
+            print("Arquivo não encontrado!")
+            quit()
+        file.close()
+        try:
+            print("Upload....")
+            self.storage.child(key).put(fileName, user['idToken'])
+        except Exception as e:
+            quit()
