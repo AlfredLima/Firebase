@@ -97,7 +97,7 @@ class Manager():
         self.database.child(key).update(data, user['idToken'])
 
     # Set database method
-    def updateDatabase(self, key, data, user):
+    def setDatabase(self, key, data, user):
         self.database.child(key).set(data, user['idToken'])
 
     # Get database method
@@ -110,5 +110,5 @@ class Manager():
         for user in all_users.each():
             print(user.key())
             print(user.val())
-            
+
     #####################################################################
